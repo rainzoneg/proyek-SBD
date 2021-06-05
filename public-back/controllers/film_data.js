@@ -26,16 +26,16 @@ const pool = new Pool({
 //     })
 // }
 
-// const createUser = (request, response) => {
-//     const { name, email } = request.body;
+const createUser = (request, response) => {
+    const { name, email } = request.body;
 
-//     pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (err, results) => {
-//         if(err){
-//             throw err;
-//         }
-//         response.status(201).send(`User added with name: ${name}`);
-//     })
-// }
+    pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (err, results) => {
+        if(err){
+            throw err;
+        }
+        response.status(201).send(`User added with name: ${name}`);
+    })
+}
 
 // const updateUser = (request, response) => {
 //     const id = parseInt(request.params.id);
@@ -114,7 +114,7 @@ const deleteFilm = (request, response) => {
 module.exports = {
     // getUsers,
     // getUsersbyID,
-    // createUser,
+    createUser,
     // updateUser,
     // deleteUser,
     getFilms,

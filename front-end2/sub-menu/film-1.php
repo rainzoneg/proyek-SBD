@@ -7,7 +7,7 @@
 			<ul class="navbar-nav ms-auto text-uppercase">
 				<li class="nav-item"><a class="nav-link" href="search.html"><i class="fa fa-search"></i>&nbsp;Search</a></li>
 				<li class="nav-item"><a class="nav-link" href="film-1.php">Film</a></li>
-				<li class="nav-item"><a class="nav-link" href="../profil-user/profil.html">Account</a></li>
+				<li class="nav-item"><a class="nav-link" href="../profil-user/login/signin.html">Account</a></li>
 				<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 			</ul>
 		</div>
@@ -174,7 +174,21 @@
 			<div style="margin-top: 5%;margin-bottom: 5%;padding-top: 0.5%;background: #333333;color: rgb(255, 255, 255);"></div>
             <h1 class="text-start">More Movies </h1>
 
-
+			<div class="row">
+                <div class="col content-right">
+                    <nav>
+                        <ul class="pagination">
+							<li class="page-item disabled" target="_parent"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                            <li class="page-item active"><a class="page-link" href="film-1.php">1</a></li>
+							<li class="page-item"><a class="page-link" href="film-2.php">2</a></li>
+							<li class="page-item"><a class="page-link" href="film-3.php">3</a></li>
+							<li class="page-item"><a class="page-link" href="film-4.php">4</a></li>
+							<li class="page-item"><a class="page-link" href="film-5.php">5</a></li>
+                            <li class="page-item" target="_top"><a class="page-link" href="film-2.php" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
 <?php
 	$result = pg_query($db,"SELECT * FROM film ORDER BY release_date DESC LIMIT 7 OFFSET 3;");
 	while($row=pg_fetch_assoc($result)){
@@ -235,7 +249,7 @@
 							<li class="page-item"><a class="page-link" href="film-3.php">3</a></li>
 							<li class="page-item"><a class="page-link" href="film-4.php">4</a></li>
 							<li class="page-item"><a class="page-link" href="film-5.php">5</a></li>
-							<li class="page-item" target="_top"><a class="page-link" href="film-2.html" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+							<li class="page-item" target="_top"><a class="page-link" href="film-2.php" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 						</ul>
 					</nav>
 				</div>
