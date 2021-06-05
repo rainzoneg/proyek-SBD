@@ -15,4 +15,26 @@
 
 ## Tentang
 Proyek Sistem Basis Data Kelompok 7a, berupa aplikasi Website terintegrasi database PostgreSQL untuk menyimpan dan menampilkan data
-Film, info film terbaru, databaes film, dll. Prototype dari website dapat dilihat di https://web-allmight.firebaseapp.com/
+Film, info film terbaru, databaes film, dll. Prototype dari website dapat dilihat di https://web-allmight.firebaseapp.com/ (OUTDATED) (COMING SOON)
+
+## Database yang Digunakan
+Database yang digunakan adalah PostgreSQL, dan spesifikasi database adalah sebagai berikut:
+
+Nama Database: proyeksbd
+
+Digunakan 4 tabel/relasi:
+
+![image](https://user-images.githubusercontent.com/68103682/120690166-108ecb00-c4cf-11eb-9d1f-0a6851d6da22.png)
+
+Tabel Account
+
+![image](https://user-images.githubusercontent.com/68103682/120690896-fd302f80-c4cf-11eb-9975-a1cd9eadf001.png)
+
+Tabel Film
+
+![image](https://user-images.githubusercontent.com/68103682/120690766-d2de7200-c4cf-11eb-9c54-8e8241e39c00.png)
+
+
+
+
+
