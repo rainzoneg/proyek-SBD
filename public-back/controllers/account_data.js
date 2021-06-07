@@ -8,6 +8,7 @@ const pool = new Pool({
 });
 const { validationResult } = require('express-validator')
 
+
 const getAccounts = (request, response) => {
     pool.query('SELECT * FROM account_data ORDER BY account_id ASC', (err, results) => {
         if (err) {
@@ -84,6 +85,21 @@ const createAccount = (request, response) => {
     // })
 }
 
+// const loginAccount = (request, response) => {
+//     let email = request.body.email;
+//     let password = request.body.password;
+//     pool.query('SELECT * FROM account_test WHERE email = $1 AND password = $2', [email, password], (err, results) => {
+//         if (err) {
+//             throw err;
+//         }
+//         if (results.rows.length > 0){
+//             response.status(301).redirect(`http://localhost/front-end2/profil-user/profil.html?email=${email}`);
+//         }else {
+//             response.status(301).redirect('http://localhost/front-end2/profil-user/login/signin.html?sc=3');
+//         }
+//     })
+// }
+
 const createAccount2 = (request, response) => {
     const firstname = request.body.firstname;
 	const surname = request.body.lastname;
@@ -101,7 +117,7 @@ const createAccount2 = (request, response) => {
 			//Pengecekkan kesamaan email dengan membandingkan hasil POST dan SELECT yang sudah ada
 			if (results.rows.length > 0){ 
 				//Kalau Create Account gagal (email yang sama udah ada)
-				response.status(301).redirect('http://localhost/front-end2/profil-user/login/signup2.html');
+				response.status(301).redirect('http://localhost/front-end2/profil-user/login/signup.html?sc=2');
 			}else{
 				pool.query('INSERT INTO account_test (firstname, surname, email, wallet, password) VALUES ($1, $2, $3, $4, $5)', [firstname, surname, email, wallet, password], (err, results) => {
 					if(err){
@@ -109,7 +125,7 @@ const createAccount2 = (request, response) => {
 					}
 					// response.status(201).send(`Account addedss with name: ${firstname} ${surname}`);
 					//Kalau create account berhasil
-					response.status(301).redirect('http://localhost/front-end2/profil-user/profil.html');
+					response.status(301).redirect('http://localhost/front-end2/profil-user/login/signup.html?sc=1');
 				});
 			}
 		})	
@@ -147,4 +163,5 @@ module.exports = {
     createAccount2,
     updateAccount,
     deleteAccount,
+    // loginAccount,
 }

@@ -1,14 +1,53 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>COW - Cinema On Web</title><meta property="og:type" content=""><meta name="description" content="Tempat menyediakan layanan pemesanan film terbesar di Indonesia."><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../../assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/cinema16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/cinema32x32.png"><link rel="icon" type="image/png" sizes="180x180" href="../../assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="../../assets/img/cinema192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="../../assets/img/cinema512x512.png"><link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"><link rel="stylesheet" href="../../assets/fonts/fontawesome5-overrides.min.css"><link rel="stylesheet" href="../../assets/css/styles.min.css"></head><body id="page-top"><nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>COW - Cinema On Web</title>
+    <script src='../assets/js/fetch.js'></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        var sessionId = urlParams.get('sessionId'); 
+        if (sessionId == null ){
+            sessionId = 0;
+        }
+    </script>
+    <meta property="og:type" content=""><meta name="description" content="Tempat menyediakan layanan pemesanan film terbesar di Indonesia."><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../../assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/cinema16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/cinema32x32.png"><link rel="icon" type="image/png" sizes="180x180" href="../../assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="../../assets/img/cinema192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="../../assets/img/cinema512x512.png"><link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"><link rel="stylesheet" href="../../assets/fonts/fontawesome5-overrides.min.css"><link rel="stylesheet" href="../../assets/css/styles.min.css"></head><body id="page-top"><nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
     <div class="container"><a class="navbar-brand" href="../../index.html" style="border-color: rgb(254, 209, 54);border-top-color: rgb(254,;border-right-color: 209,;border-bottom-color: 54);border-left-color: 209,;color: rgb(254, 209, 54);">COW</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto text-uppercase">
-                <li class="nav-item"><a class="nav-link" href="../../sub-menu/search.html"><i class="fa fa-search"></i> Search</a></li>
-                <li class="nav-item"><a class="nav-link" href="../../sub-menu/film-1.php">Film</a></li>
-                <li class="nav-item"><a class="nav-link" href="../login/signin.html">account</a></li>
-                <li class="nav-item"><a class="nav-link" href="../../sub-menu/about.html">ABout</a></li>
+            <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+			<ul class="navbar-nav ms-auto text-uppercase">
+			    <li class="nav-item"><a class="nav-link" id="var_t" style="display: none;" href="../profil-user/profil.html"><script>accountFirstname(sessionId)</script></a></li>
+				<li class="nav-item"><a class="nav-link" href="../../sub-menu/search.html"><i class="fa fa-search"></i>&nbsp;Search</a></li>
+				<li class="nav-item"><a class="nav-link" href="../../sub-menu/film-1.php">Film</a></li>
+				<li class="nav-item"><a class="nav-link" id="logger" href="../profil-user/login/signin.html">Account</a></li>
+                <li class="nav-item"><a class="nav-link" id="logout" style="display: none;" href="profil-user/login/signin.html">Logout</a></li>
+				<li class="nav-item"><a class="nav-link" href="../../sub-menu/about.html">About</a></li>
             </ul>
         </div>
     </div>
+    <script>
+        document.getElementById("var_t").id = `t${sessionId}`;
+        $(document).ready(function () {
+        // Check if gagal
+        if (sessionId > 0) {
+            $(`#var_t`).show();
+        }
+        if (sessionId > 0) {
+            $(`#t${sessionId}`).show();
+            $('#logout').show();
+        }
+        if (sessionId > 0) {
+            $(`#logger`).hide();
+        }
+        if (sessionId > 0) {
+            var a = document.getElementsByTagName('a');   // Get all `<a>`
+            var href;
+            // Loop through all `<a>`
+            for (var i = 0; i < a.length; i++){
+                // Add `?who=123` to all hrefs found.
+                a[i].href += `?sessionId=${sessionId}`;
+            }
+            document.getElementById("logout").href="../../index.html";
+            document.getElementById("btn-bottom").href="#page-top";
+        }
+        })
+    </script>
 </nav><header class="masthead" style="background: rgb(33,37,41);">
     <div class="container profile profile-view" id="profile-2">
         <div class="intro-text" style="padding-bottom: 100px;">

@@ -104,14 +104,14 @@ function hargaId(id) {
 
 function accountFirstname(id){
     var accountData;
-    fetch(`http://localhost:3001/accounts/${id}`, {
+    fetch(`http://localhost:3001/accounts2/${id}`, {
         method:"GET",
     })
     .then(response => response.json())
     .then(users => accountData = users)
     .then(users => showAccount(users.results))
     let showAccount = (users) => {
-        let accountDiv = document.querySelector(`#${CSS.escape(id)}`);
+        let accountDiv = document.querySelector(`#t${id}`);
         accountData.forEach(accountData => {
             accountDiv.innerText = `${accountData.firstname}`;
         });
