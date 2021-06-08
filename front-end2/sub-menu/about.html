@@ -29,26 +29,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body id="page-top">
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html" style="
-            border-color: rgb(254, 209, 54);
-            border-top-color: rgb(254);border-right-color: 209,;border-bottom-color: (54),;border-left-color: 209,;color: rgb(254, 209, 54);">
-                COW
-            </a>
-            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" id="var_t" style="display: none;" href="../profil-user/profil.html"><script>accountFirstname(sessionId)</script></a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html"><i class="fa fa-search"></i>&nbsp;Search</a></li>
-                    <li class="nav-item"><a class="nav-link" href="film-1.php">Film</a></li>
-                    <li class="nav-item"><a class="nav-link" id="logger" href="../profil-user/login/signin.html">Account</a></li>
-                    <li class="nav-item"><a class="nav-link" id="logout" style="display: none;" href="profil-user/login/signin.html">Logout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNavi">
+    <div class="container"><a class="navbar-brand" href="../index.html" style="border-color: rgb(254, 209, 54);border-top-color: rgb(254,;border-right-color: 209,;border-bottom-color: 54);border-left-color: 209,;color: rgb(254, 209, 54);font-family: 'Kaushan Script', serif;font-size: 28px;">COW</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" style="color: rgb(255,255,255);background: rgb(254,209,54);"><i class="fa fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto text-uppercase">
+                <li class="nav-item"><a class="nav-link" id="hov-color" href="search.html"><i class="fa fa-search"></i> Search</a></li>
+                <li class="nav-item"><a class="nav-link" id="hov-color" href="film-1.html">Film</a></li>
+                <li class="nav-item"><a class="nav-link" id="hov-color" href="about.html">ABout</a></li>
+                <li class="nav-item dropdown"><a aria-expanded="false" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" id="hov-color" href="#">Account</a>
+                    <div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="../profil-user/profil.html"><i class="fa fa-user"></i>  Username</a><a class="dropdown-item disabled text-capitalize" href="#">Rp 35.000,-<br /></a><a class="dropdown-item" href="../index.html" style="color: rgb(220,53,69);"><i class="fa fa-power-off"></i> LOG out</a><a class="dropdown-item" href="../profil-user/login/signin.html"><i class="fa fa-user"></i>  Guest</a></div>
+                </li>
+            </ul>
         </div>
+    </div>
         <script>
             document.getElementById("var_t").id = `t${sessionId}`;
             $(document).ready(function () {
@@ -89,73 +82,17 @@
                         <p class="text-start" data-aos="fade-right" data-aos-once="true" style="font-size: 20px;text-align: justify;">Cinema On Web merupakan situs online yang melayani pemesanan tiket secara online dan menyediakan ribuan koleksi film. Tanpa kehadiran empat orang ini, website tidak dapat dibangun dan berdiri sendiri. Sosok mereka adalah bibit-bibit unggul penerus bangsa.</p>
                     </div>
                 </div>
-                <section id="team" style="background: rgb(33,37,41);">
-                    <div class="container" style="background: rgb(33,37,41);">
-                        <div class="row">
-                            <div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
-                                <div class="team-member">
-                                    <img class="rounded-circle mx-auto" src="../assets/img/team/Juan%20Crop.jpg"><h4>Juan Patrick</h4>
-                                    <p class="text-muted">1906355516</p>
-                                    <ul class="list-inline social-buttons">
-                                        <li class="list-inline-item">
-                                            <a href="https://www.instagram.com/juanpatrickseow/"><i class="fa fa-instagram"></i></a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="https://www.linkedin.com/in/juan-patrick-1018b3172/"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
-                                <div class="team-member">
-                                    <img class="rounded-circle mx-auto" src="../assets/img/team/Richard%20Crop.jpg">
-                                    <h4>Richard Tanoto</h4>
-                                    <p class="text-muted">1906355586</p>
-                                    <ul class="list-inline social-buttons">
-                                        <li class="list-inline-item">
-                                            <a href="https://www.instagram.com/richard_tanoto/?hl=en"><i class="fa fa-instagram"></i></a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="https://www.linkedin.com/in/richard-tanoto-2708a0194/"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
-                                <div class="team-member">
-                                    <img class="rounded-circle mx-auto" src="../assets/img/team/Ronald%20Crop.jpg">
-                                    <h4><strong>Ronald Grant</strong></h4>
-                                    <p class="text-muted">1906355655</p>
-                                    <ul class="list-inline social-buttons">
-                                        <li class="list-inline-item">
-                                            <a href="https://www.instagram.com/dlanooor/"><i class="fa fa-instagram"></i></a>
-                                        </li>
-                                        <!-- <li class="list-inline-item"></li> -->
-                                        <li class="list-inline-item">
-                                            <a href="https://www.linkedin.com/in/ronald-grant/"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
-                                <div class="team-member">
-                                    <img class="rounded-circle mx-auto" src="../assets/img/team/Samuel%20Crop.jpg">
-                                    <h4><strong>Samuel Nathaniel H</strong></h4>
-                                    <p class="text-muted">1906355560</p>
-                                    <ul class="list-inline social-buttons">
-                                        <li class="list-inline-item">
-                                            <a href="https://www.instagram.com/samuel.nathanielh/"><i class="fa fa-instagram"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"></li>
-                                        <li class="list-inline-item">
-                                            <a href="https://www.linkedin.com/in/samuel-nathaniel-h-b53484196/"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <section id="team" style="background: rgb(33,37,41);"><div class="container" style="background: rgb(33,37,41);"><div class="row"><div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
+			<div class="team-member"><img class="rounded-circle mx-auto" src="../assets/img/team/Juan%20Crop.jpg"><h4>Juan Patrick</h4><p class="text-muted">1906355516</p><ul class="list-inline social-buttons"><li class="list-inline-item"><a href="https://www.instagram.com/juanpatrickseow/"><i class="fa fa-instagram"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/juan-patrick-1018b3172/"><i class="fa fa-linkedin"></i></a></li></ul></div></div><div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
+			<div class="team-member"><img class="rounded-circle mx-auto" src="../assets/img/team/Richard%20Crop.jpg"><h4>Richard Tanoto</h4><p class="text-muted">1906355586</p><ul class="list-inline social-buttons"><li class="list-inline-item"><a href="https://www.instagram.com/richard_tanoto/?hl=en"><i class="fa fa-instagram"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/richard-tanoto-2708a0194/"><i class="fa fa-linkedin"></i></a></li></ul></div></div><div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
+			<div class="team-member"><img class="rounded-circle mx-auto" src="../assets/img/team/Ronald%20Crop.jpg"><h4><strong>Ronald Grant</strong></h4><p class="text-muted">1906355655</p><ul class="list-inline social-buttons"><li class="list-inline-item"><a href="https://www.instagram.com/dlanooor/"><i class="fa fa-instagram"></i></a></li><li class="list-inline-item"></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ronald-grant/"><i class="fa fa-linkedin"></i></a></li></ul></div></div><div class="col-sm-6 col-xl-6" data-aos="zoom-in-down" data-aos-once="true">
+			<div class="team-member"><img class="rounded-circle mx-auto" src="../assets/img/team/Samuel%20Crop.jpg"><h4><strong>Samuel Nathaniel H</strong></h4><p class="text-muted">1906355560</p><ul class="list-inline social-buttons"><li class="list-inline-item"><a href="https://www.instagram.com/samuel.nathanielh/"><i class="fa fa-instagram"></i></a></li><li class="list-inline-item"></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/samuel-nathaniel-h-b53484196/"><i class="fa fa-linkedin"></i></a></li></ul></div></div>
+			</div>
+			<div class="intro-lead-in"><h1 style="margin-bottom: 5%;">Quote
+				</h1>
+			<img data-aos="fade" data-aos-once="true" class="w-100" src="../assets/img/allmight.webp"><figure><blockquote class="blockquote"><p data-aos="zoom-in" data-aos-once="true" class="mb-0" style="color: rgb(255, 255, 255);"><br>"I smile to show the pressure of heroes and to trick the fear inside of me."<br><br></p></blockquote>
+		 	<figcaption class="blockquote-footer" data-aos="fade" data-aos-once="true">All Might</figcaption></figure></div></div>
+		</section>
             </div>
         </div>
     </header>
