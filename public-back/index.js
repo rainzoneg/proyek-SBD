@@ -55,6 +55,8 @@ app.get('/accounts', db2.getAccounts);
 app.get('/accounts/:account_id', db2.getAccountsbyID);
 app.post('/accounts', db2.createAccount);
 app.put('/accounts/:account_id', db2.updateAccount);
+// app.put('/accounts2/saldo/:account_id', db2.updateSaldo);
+app.post('/accounts2/saldo/:account_id', db2.updateSaldo);
 app.delete('/accounts/:account_id', db2.deleteAccount);
 
 

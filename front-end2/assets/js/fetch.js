@@ -118,16 +118,32 @@ function accountFirstname(id){
     }
 }
 
-function accountSurname(id){
+function accountFirstname2(id){
     var accountData;
-    fetch(`http://localhost:3001/accounts/${id}`, {
+    fetch(`http://localhost:3001/accounts2/${id}`, {
         method:"GET",
     })
     .then(response => response.json())
     .then(users => accountData = users)
     .then(users => showAccount(users.results))
     let showAccount = (users) => {
-        let accountDiv = document.querySelector(`#${CSS.escape(id)}`);
+        let accountDiv = document.querySelector(`#t${id}`);
+        accountData.forEach(accountData => {
+            return `${accountData.firstname}`;
+        });
+    }
+}
+
+function accountSurname(id){
+    var accountData;
+    fetch(`http://localhost:3001/accounts2/${id}`, {
+        method:"GET",
+    })
+    .then(response => response.json())
+    .then(users => accountData = users)
+    .then(users => showAccount(users.results))
+    let showAccount = (users) => {
+        let accountDiv = document.querySelector(`#ts${id}`);
         accountData.forEach(accountData => {
             accountDiv.innerText = `${accountData.surname}`;
         });
@@ -136,32 +152,48 @@ function accountSurname(id){
 
 function accountEmail(id){
     var accountData;
-    fetch(`http://localhost:3001/accounts/${id}`, {
+    fetch(`http://localhost:3001/accounts2/${id}`, {
         method:"GET",
     })
     .then(response => response.json())
     .then(users => accountData = users)
     .then(users => showAccount(users.results))
     let showAccount = (users) => {
-        let accountDiv = document.querySelector(`#${CSS.escape(id)}`);
+        let accountDiv = document.querySelector(`#e${id}`);
         accountData.forEach(accountData => {
             accountDiv.innerText = `${accountData.email}`;
         });
     }
 }
 
-function accountWallet(id){
+function accountSaldo(id){
     var accountData;
-    fetch(`http://localhost:3001/accounts/${id}`, {
+    fetch(`http://localhost:3001/accounts2/${id}`, {
         method:"GET",
     })
     .then(response => response.json())
     .then(users => accountData = users)
     .then(users => showAccount(users.results))
     let showAccount = (users) => {
-        let accountDiv = document.querySelector(`#${CSS.escape(id)}`);
+        let accountDiv = document.querySelector(`#s${id}`);
         accountData.forEach(accountData => {
-            accountDiv.innerText = `${accountData.wallet}`;
+            accountDiv.innerText = `Rp.${accountData.wallet},00`;
+        });
+    }
+}
+
+function accountWallet(id){
+    var accountData;
+    fetch(`http://localhost:3001/accounts2/${id}`, {
+        method:"GET",
+    })
+    .then(response => response.json())
+    .then(users => accountData = users)
+    .then(users => showAccount(users.results))
+    let showAccount = (users) => {
+        let accountDiv = document.querySelector(`#h${id}`);
+        accountData.forEach(accountData => {
+            accountDiv.innerText = `Rp.${accountData.wallet},00`;
         });
     }
 }

@@ -136,7 +136,19 @@ const updateAccount = (request, response) => {
     const account_id = parseInt(request.params.account_id);
     const { firstname, surname, email, wallet, password } = request.body;
 
-    pool.query('UPDATE account_data SET firstname = $1, surname = $2, email = $3, wallet = $4, password = $5 WHERE account_id = $6', [firstname, surname, email, wallet, password, account_id], (err, results) => {
+    pool.query('UPDATE account_test SET firstname = $1, surname = $2, email = $3, password = $4 WHERE account_id = $5', [firstname, surname, email, password, account_id], (err, results) => {
+        if(err){
+            throw err;
+        }
+        response.status(200).send(`Account modified with name: ${firstname} ${surname}`);
+    })
+}
+
+const updateSaldo = (request, response) => {
+    const account_id = parseInt(request.params.account_id);
+    const { wallet } = request.body;
+
+    pool.query('UPDATE account_test SET wallet = wallet+$1 WHERE account_id = $2', [wallet, account_id], (err, results) => {
         if(err){
             throw err;
         }
@@ -162,6 +174,7 @@ module.exports = {
     createAccount,
     createAccount2,
     updateAccount,
+    updateSaldo,
     deleteAccount,
     // loginAccount,
 }
