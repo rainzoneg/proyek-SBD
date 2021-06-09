@@ -9,15 +9,6 @@ const pool = new Pool({
 const { validationResult } = require('express-validator')
 
 
-const getAccounts = (request, response) => {
-    pool.query('SELECT * FROM account_data ORDER BY account_id ASC', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        response.status(200).json(results.rows);
-    })
-}
-
 const getAccounts2 = (request, response) => {
     pool.query('SELECT * FROM account_test ORDER BY account_id ASC', (err, results) => {
         if (err) {
@@ -37,15 +28,6 @@ const getAccounts2byID = (request, response) => {
     })
 }
 
-const getAccountsbyID = (request, response) => {
-    const account_id = parseInt(request.params.account_id);
-    pool.query('SELECT * FROM account_data WHERE account_id = $1', [account_id], (err, results) => {
-        if(err) {
-            throw err;
-        }
-        response.status(200).json(results.rows);
-    })
-}
 
 const createAccount = (request, response) => {
     const firstname = request.body.firstname;
@@ -85,20 +67,6 @@ const createAccount = (request, response) => {
     // })
 }
 
-// const loginAccount = (request, response) => {
-//     let email = request.body.email;
-//     let password = request.body.password;
-//     pool.query('SELECT * FROM account_test WHERE email = $1 AND password = $2', [email, password], (err, results) => {
-//         if (err) {
-//             throw err;
-//         }
-//         if (results.rows.length > 0){
-//             response.status(301).redirect(`http://localhost/front-end2/profil-user/profil.html?email=${email}`);
-//         }else {
-//             response.status(301).redirect('http://localhost/front-end2/profil-user/login/signin.html?sc=3');
-//         }
-//     })
-// }
 
 const createAccount2 = (request, response) => {
     const firstname = request.body.firstname;
@@ -158,7 +126,7 @@ const updateSaldo = (request, response) => {
 
 const deleteAccount = (request, response) => {
     const account_id = parseInt(request.params.account_id);
-    pool.query('DELETE FROM account_data WHERE account_id = $1', [account_id], (err, results) => {
+    pool.query('DELETE FROM account_test WHERE account_id = $1', [account_id], (err, results) => {
         if(err){
             throw err;
         }
@@ -167,14 +135,11 @@ const deleteAccount = (request, response) => {
 }
 
 module.exports = {
-    getAccounts,
     getAccounts2,
     getAccounts2byID,
-    getAccountsbyID,
     createAccount,
     createAccount2,
     updateAccount,
     updateSaldo,
     deleteAccount,
-    // loginAccount,
 }

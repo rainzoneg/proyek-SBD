@@ -60,56 +60,82 @@
                 })
                 
             </script>
+          
 </nav><header class="masthead" style="background: rgb(33,37,41);">
-    <div class="container">
+    <div class="container">     
         <div class="intro-text" style="padding-bottom: 100px;">
             <h1 style="color: rgb(254,209,54);margin-bottom: 5%;">RIWAYAT TRANSAKSI</h1>
-            <h3 class="text-start" style="margin-bottom: 4%;">Saldo Saat Ini: Rp </h3>
-            <div class="table-responsive">
-                <table class="table">
+            <table class="table">
+                <tbody style="color: rgb(255,255,255);">
                     <tbody style="color: rgb(255,255,255);">
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Order ID:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">ID Film:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Nama Film:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Harga:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Rp 00,-</td>
-                        </tr>
+                    <tr>
+                        <td class="text-start" style="border-color: rgba(255,255,255,0);">Saldo Saat Ini:</td>
+                        <td id="walletsa" style="border-color: rgba(255,255,255,0)" ><script>accountSaldo(sessionId)</script><br /></td>
+                    </tr>
                     </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
+            <script>
+                document.getElementById("walletsa").id = `s${sessionId}`;
+            </script>
+            <?php
+                $db = pg_connect("host=localhost port=5432 dbname=proyeksbd user=postgres password="); 
+                $accountid = $_GET['sessionId'];
+                $result = pg_query($db,"SELECT * FROM order_data AS ORD, film AS FIL, price_data AS PRC WHERE account_id = '$accountid' AND ((ORD.film_id = FIL.film_id) AND (FIL.film_id = PRC.film_id));");
+                while($row=pg_fetch_assoc($result)){
+                echo '<div class="table-responsive">';
+                echo '<div style="margin-top: 3%;margin-bottom: 3%;border-style: solid;border-color: rgb(44,44,44);"></div>';
+                echo    '<table class="table">';
+                echo        '<tbody style="color: rgb(255,255,255);">';
+                echo           '<tr>' ;
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">Order ID:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['order_id'].'</td>';
+                echo            '</tr>';
+                echo            '<tr>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">ID Film:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['film_id'].'</td>';
+                echo           '</tr>';
+                echo            '<tr>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">Judul Film:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['title'].'</td>';
+                echo           '</tr>';
+                echo            '<tr>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">Harga Film:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['price'].'</td>';
+                echo           '</tr>';
+                echo            '<tr>';
+                echo               '<td class="text-start" style="border-color: rgba(255,255,255,0);">Jumlah:</td>';
+                echo               '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['amount'].'</td>';
+                echo            '</tr>';
+                echo       '</tbody>';
+                echo   '</table>';
+                echo'</div>';
+                }
+            ?>
             <div style="margin-top: 3%;margin-bottom: 3%;border-style: solid;border-color: rgb(44,44,44);"></div>
-            <div class="table-responsive">
-                <table class="table">
-                    <tbody style="color: rgb(255,255,255);">
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Order ID:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">ID Film:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Nama Film:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Harga:</td>
-                            <td class="text-start" style="border-color: rgba(255,255,255,0);">Rp 00,-</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+             <!-- <div class="table-responsive">
+                 <table class="table">
+                     <tbody style="color: rgb(255,255,255);">
+                         <tr>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">Order ID:</td>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
+                         </tr>
+                         <tr>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">ID Film:</td>
+                         <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
+                         </tr>
+                         <tr>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">Nama Film:</td>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">Marvel</td>
+                         </tr>
+                         <tr>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">Harga:</td>
+                             <td class="text-start" style="border-color: rgba(255,255,255,0);">Rp 00,-</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div> -->
         </div>
     </div>
 </header><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a><footer class="footer-dark">

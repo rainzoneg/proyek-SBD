@@ -4,7 +4,6 @@ const db = require('./controllers/film_data');
 const db2 = require('./controllers/account_data');
 const db3 = require('./controllers/order_data');
 const db4 = require('./controllers/price_data');
-// const { validateEmail } = require('./validator');
 const { body, validationResult } = require('express-validator')
 const session = require('express-session');
 app.use(session({
@@ -16,7 +15,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 const http = require('http');
-//const { response } = require('express');
 const hostname = '127.0.0.1';
 const port = 3001;
 const Pool = require('pg').Pool
@@ -27,14 +25,6 @@ const pool = new Pool({
     password: 'password',
     port: 5432,
 });
-// const server = http.createServer((req,res) => {
-// 	res.statusCode = 200;
-// 	res.setHeader('Content-Type', 'text/html');
-// 	res.write('Hello Worlds!!');
-// 	res.end();
-// });server.listen(port, hostname, () => {
-// 	console.log(`Server running`);
-// });
 var cors = require('cors');
 app.use(cors());
 
@@ -51,16 +41,15 @@ app.post('/films/', db.createFilm);
 app.put('/films/:film_id', db.updateFilm);
 app.delete('/films/:film_id', db.deleteFilm);
 
-app.get('/accounts', db2.getAccounts);
-app.get('/accounts/:account_id', db2.getAccountsbyID);
-app.post('/accounts', db2.createAccount);
-app.put('/accounts/:account_id', db2.updateAccount);
+// app.get('/accounts', db2.getAccounts);
+// app.get('/accounts/:account_id', db2.getAccountsbyID);
+// app.post('/accounts', db2.createAccount);
+// app.put('/accounts/:account_id', db2.updateAccount);
 // app.put('/accounts2/saldo/:account_id', db2.updateSaldo);
+// app.delete('/accounts/:account_id', db2.deleteAccount);
+
+
 app.post('/accounts2/saldo/:account_id', db2.updateSaldo);
-app.delete('/accounts/:account_id', db2.deleteAccount);
-
-
-
 app.get('/accounts2', db2.getAccounts2)
 app.get('/accounts2/:account_id', db2.getAccounts2byID)
 app.post('/accounts2', body('email').trim().normalizeEmail().isEmail().withMessage('Invalid email'), db2.createAccount2);
@@ -84,20 +73,6 @@ app.post('/login', (request, response) => {
     })
 });
 
-// const loginAccount = (request, response) => {
-//     let email = request.body.email;
-//     let password = request.body.password;
-//     pool.query('SELECT * FROM account_test WHERE email = $1 AND password = $2', [email, password], (err, results) => {
-//         if (err) {
-//             throw err;
-//         }
-//         if (results.rows.length > 0){
-//             response.status(301).redirect(`http://localhost/front-end2/profil-user/profil.html?email=${email}`);
-//         }else {
-//             response.status(301).redirect('http://localhost/front-end2/profil-user/login/signin.html?sc=3');
-//         }
-//     })
-// }
 
 app.get('/orders', db3.getOrders);
 app.get('/orders/:order_id', db3.getOrdersbyID);
