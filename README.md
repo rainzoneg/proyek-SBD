@@ -28,11 +28,20 @@ Digunakan 4 tabel/relasi:
 
 Tabel Account
 
-![image](https://user-images.githubusercontent.com/68103682/120690896-fd302f80-c4cf-11eb-9975-a1cd9eadf001.png)
+![asdasd](https://user-images.githubusercontent.com/68103682/121387688-1411ce80-c975-11eb-8f8e-f61c66dd3182.PNG)
 
 Tabel Film
 
 ![image](https://user-images.githubusercontent.com/68103682/120690766-d2de7200-c4cf-11eb-9c54-8e8241e39c00.png)
+
+Tabel Order 
+
+![asdasd2](https://user-images.githubusercontent.com/68103682/121388523-bfbb1e80-c975-11eb-9d7f-ccec3248a707.PNG)
+
+Tabel Prices
+
+![asdasd3](https://user-images.githubusercontent.com/68103682/121388866-090b6e00-c976-11eb-983d-4a8af1a2b953.PNG)
+
 
 
 
