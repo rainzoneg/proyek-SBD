@@ -88,7 +88,7 @@
                         <h1 id="saldo">ISI SALDO</h1>
                         <hr />
                         <div class="form-group mb-3">
-                            <p class="text-start">Saldo Saat Ini:</p><label type="text"  id="var_s" class="form-control" name="saldo" readonly><script>accountSaldo(sessionId)</script></label>
+                            <p class="text-start">Saldo Saat Ini:</p><label type="text"  id="var_s" class="form-control" name="saldo" style="text-align:left" readonly><script>accountSaldo(sessionId)</script></label>
                             <p class="text-start"></p><input type="hidden" id="account_id" name="account_id" class="form-control" min="0" value="" />
                             <p class="text-start">Isi Saldo: (Rupiah)</p><input type="number" id="saldo" name="wallet" class="form-control" min="5000" placeholder="Isi minimal 5000" />
                         </div>

@@ -92,7 +92,7 @@
                                 <div class="form-group mb-3"><label class="form-label">Firstname </label><input type="text" class="form-control" name="firstname" /></div>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <div class="form-group mb-3"><label class="form-label">Lastname </label><input type="text" class="form-control" name="surname" /></div>
+                                <div class="form-group mb-3"><label class="form-label">Lastname </label><input type="text" class="form-control" id="var_ts" name="lastname" value=/><script>accountSurname(sessionId)</script></div>
                             </div>
                         </div>
                         <div class="row">
@@ -115,6 +115,7 @@
     </div>
     <script>
         document.getElementById("account_id").value = `${sessionId}`;
+        document.getElementById("var_s").id = `s${sessionId}`;
     </script>
 </header><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a><footer class="footer-dark">
     <div class="container">

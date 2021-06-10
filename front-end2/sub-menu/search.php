@@ -77,7 +77,7 @@
                 }
                 if (isset($_POST['submit'])) {
                     $title = $_POST['title'];
-                    $result = pg_query($db,"SELECT * FROM film WHERE title LIKE '%$title%';");
+                    $result = pg_query($db,"SELECT * FROM film WHERE title ILIKE '%$title%';");
                 }
                 while($row=pg_fetch_assoc($result)){
                 echo '<div class="row" style="margin-bottom: 5%;margin-top: 5%;">';
