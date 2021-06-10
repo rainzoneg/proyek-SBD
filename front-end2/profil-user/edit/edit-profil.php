@@ -65,7 +65,7 @@
     
     if (isset($_POST['submit'])) {
         $firstname = $_POST['firstname'];
-        $surname = $_POST['surname'];
+        $surname = $_POST['lastname'];
         $password = $_POST['password'];
         $accountid = $_POST['account_id'];
         $query = pg_query($db, "UPDATE account_test SET firstname = '$firstname', surname = '$surname', password = '$password' WHERE account_id = '$accountid';");
@@ -89,10 +89,16 @@
                         <hr />
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
-                                <div class="form-group mb-3"><label class="form-label">Firstname </label><input type="text" class="form-control" name="firstname" /></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="form-group mb-3"><label class="form-label">Lastname </label><input type="text" class="form-control" id="var_ts" name="lastname" value=/><script>accountSurname(sessionId)</script></div>
+                            <?php 
+                                $account = $_GET['sessionId'];
+                                $result = pg_query($db,"SELECT * FROM account_test WHERE account_id = '$account';");
+                                while($row=pg_fetch_assoc($result)){
+                                echo '<div class="form-group mb-3"><label class="form-label">Firstname </label><input type="text" class="form-control" name="firstname" value="'.$row['firstname'].'"/></div>';
+                                echo '</div>';
+                                echo '<div class="col-sm-12 col-md-6">';
+                                echo '<div class="form-group mb-3"><label class="form-label">Lastname </label><input type="text" class="form-control" id="var_ts" name="lastname" value="'.$row['surname'].'" required></div>';   
+                                }     
+                            ?>
                             </div>
                         </div>
                         <div class="row">
@@ -115,7 +121,8 @@
     </div>
     <script>
         document.getElementById("account_id").value = `${sessionId}`;
-        document.getElementById("var_s").id = `s${sessionId}`;
+        // document.getElementById("var_ts").id = `ts${sessionId}`;
+        
     </script>
 </header><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a><footer class="footer-dark">
     <div class="container">

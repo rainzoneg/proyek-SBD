@@ -114,7 +114,7 @@
 									echo '</tbody>';
 									echo '</table>';
 									// echo '</div><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button>';
-									echo '</div><a draggable="false" href="../payment/pay-confirmation.html?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
+									echo '</div><a draggable="false" href="../payment/pay-confirmation.php?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
 									echo '</div>';
 									echo '</div>';
 									echo '</div>';
@@ -160,7 +160,7 @@
 										echo '</tr>';
 										echo '</tbody>';
 										echo '</table>';
-										echo '</div><a draggable="false" href="../payment/pay-confirmation.html?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
+										echo '</div><a draggable="false" href="../payment/pay-confirmation.php?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
@@ -206,7 +206,7 @@
 										echo '</tr>';
 										echo '</tbody>';
 										echo '</table>';
-										echo '</div><a draggable="false" href="../payment/pay-confirmation.html?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
+										echo '</div><a draggable="false" href="../payment/pay-confirmation.php?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
@@ -254,7 +254,7 @@
 		echo '<div class="col-md-8 text-start"><h2>'.$row['title'].'</h2>';
 
 		echo '<p id="d'.$row['film_id'].'"><script>readFilmDescById('.$row['film_id'].');</script><br /></p>';
-		echo '<a draggable="false" href="../payment/pay-confirmation.html?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
+		echo '<a draggable="false" href="../payment/pay-confirmation.php?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
 		echo '<div style="margin-top: 3%;"></div>';
 		echo '<div class="table-responsive"><table class="table"><tbody style="color: rgb(255,255,255);">';
 		

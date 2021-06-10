@@ -59,9 +59,24 @@
                 document.getElementById("logout").href="../index.html";
                 document.getElementById("btn-bottom").href="#page-top";
                 document.getElementById("hov-colors").href="#";
+                document.getElementById("modal").href="#confirmation";
             }
             })
         </script>
+<?php
+	$db = pg_connect("host=localhost port=5432 dbname=proyeksbd user=postgres password=");
+    $accountid = $_GET['?sessionId'];
+    $filmId = $_GET['film_id'];
+    $query = pg_query($db, "SELECT * FROM price_data WHERE film_id = $filmId;");
+    $fetch = pg_fetch_assoc($query);
+    $price = $fetch['price'];
+    
+    if (isset($_POST['submit'])) {
+        $result = pg_query($db,"UPDATE account_test SET wallet = wallet - $price WHERE account_id = $accountid");
+        sleep(1);
+        echo "<script type='text/javascript'>location.href= '../profil-user/history.php?sessionId=${accountid}';</script>";
+    }
+?>
 </nav><header class="masthead" style="background: rgb(33,37,41);">
     <div class="container">
         <div class="intro-text" style="padding-bottom: 100px;">
@@ -89,13 +104,20 @@
                         document.getElementById("var_id").innerHTML = film_id;
                         document.getElementById("var_t").id = `t${film_id}`;
                         document.getElementById("var_h").id = `h${film_id}`;
+                        document.getElementById("modals").href="#confirmation";
                     </script>
                 </div>
             </div>
-            <div class="row">
-                <div class="col"><a class="btn btn-danger" role="button" href="#confirmation" id="modal" data-bs-toggle="modal"><i class="fa fa-close"></i>  Batal</a></div>
-                <div class="col"><a class="btn btn-primary"  role="button" onclick="loading()" href="../profil-user/history.php"><span id="payment" style="display:inline;" > <i class="fa fa-dollar"></i>  Bayar</span><span id="loader" style="display:none;"><span role="status" class="spinner-border spinner-border-sm"></span>  Loading...</span></a></div>
-            </div>
+            <form method="POST" action="">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="col"><a class="btn btn-danger" role="button" href="#confirmation" id="modal" data-bs-toggle="modal"><i class="fa fa-close"></i>  Batal</a></div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="col"><button class="btn btn-primary" type="submit" name="submit" onclick="loading()" href="../profil-user/history.php"><span id="payment" style="display:inline;" > <i class="fa fa-dollar"></i>  Bayar</span><span id="loader" style="display:none;"><span role="status" class="spinner-border spinner-border-sm"></span>  Loading...</span></button></div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </header><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a><footer class="footer-dark">

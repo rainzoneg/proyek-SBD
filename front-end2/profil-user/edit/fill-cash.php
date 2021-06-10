@@ -95,7 +95,7 @@
                         <hr />
                         <br><br>
                         <div class="row">
-                            <div class="col-md-12 content-right"><button class="btn btn-success form-btn"  type="submit" name="submit"> ISI </button><a class="btn btn-danger form-btn" role="button" href="#confirmation" data-bs-toggle="modal"><i class="fa fa-close"></i>  BATAL</a></div>
+                            <div class="col-md-12 content-right"><button class="btn btn-success form-btn" type="submit" name="submit"> ISI </button><a class="btn btn-danger form-btn" role="button" href="#confirmation" data-bs-toggle="modal"><i class="fa fa-close"></i>  BATAL</a></div>
                         </div>
                     </div>
                 </div>
