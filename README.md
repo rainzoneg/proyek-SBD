@@ -28,7 +28,7 @@ Digunakan 4 tabel/relasi:
 
 Tabel Account
 
-![asdasd](https://user-images.githubusercontent.com/68103682/121387688-1411ce80-c975-11eb-8f8e-f61c66dd3182.PNG)
+![image](https://user-images.githubusercontent.com/68103682/121511790-3b1edd80-ca13-11eb-972c-437dc49ddd04.png)
 
 Tabel Film
 
