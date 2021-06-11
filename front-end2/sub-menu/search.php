@@ -72,7 +72,7 @@
             <div class="row" style="margin-bottom: 10%;">
                 <div class="col">
                     <h2 class="text-center">Pencarian Tidak Ditemukan.<br /></h2>
-                    <p>Kami tidak dapat menemukan nama film Anda yang ada di database kami.<br />Apakah Anda sudah melihat <a href="film-1.html">film</a> kami ?</p>
+                    <p>Kami tidak dapat menemukan nama film Anda yang ada di database kami.<br />Apakah Anda sudah melihat <a href="film-1.php">film</a> kami ?</p>
                 </div>
             </div>
             <?php
