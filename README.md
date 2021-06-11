@@ -45,7 +45,7 @@ Digunakan 4 tabel/relasi:
 ![image](https://user-images.githubusercontent.com/68103682/121511790-3b1edd80-ca13-11eb-972c-437dc49ddd04.png)
 
 
-```
+```sql
 CREATE table account_test(account_id serial UNIQUE PRIMARY KEY, 
 firstname text NOT NULL,
 surname text,
@@ -59,7 +59,7 @@ password text);
 
 ![image](https://user-images.githubusercontent.com/68103682/120690766-d2de7200-c4cf-11eb-9c54-8e8241e39c00.png)
 
-```
+```SQL
 CREATE table film(film_id int, 
 title text,
 poster_url text,
