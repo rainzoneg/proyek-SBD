@@ -77,11 +77,6 @@
 </nav><header class="masthead" style="background: rgb(33,37,41);">
     <div class="container profile profile-view" id="profile-1">
         <div class="intro-text" style="padding-bottom: 100px;">
-            <div class="row">
-                <div class="col-md-12 alert-col relative">
-                    <div role="alert" class="alert alert-info alert-dismissible absolue center"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
-                </div>
-            </div>
             <form id="myForm" method="POST" action="">
                 <div class="row profile-row">
                     <div class="col">
@@ -90,12 +85,12 @@
                         <div class="form-group mb-3">
                             <p class="text-start">Saldo Saat Ini:</p><label type="text"  id="var_s" class="form-control" name="saldo" style="text-align:left" readonly><script>accountSaldo(sessionId)</script></label>
                             <p class="text-start"></p><input type="hidden" id="account_id" name="account_id" class="form-control" min="0" value="" />
-                            <p class="text-start">Isi Saldo: (Rupiah)</p><input type="number" id="saldo" name="wallet" class="form-control" min="5000" placeholder="Isi minimal 5000" />
+                            <p class="text-start">Isi Saldo: (Rupiah)</p><input type="number" id="saldo" name="wallet" class="form-control" min="5000" placeholder="Isi minimal 5000" required/>
                         </div>
                         <hr />
                         <br><br>
                         <div class="row">
-                            <div class="col-md-12 content-right"><button class="btn btn-success form-btn" type="submit" name="submit"> ISI </button><a class="btn btn-danger form-btn" role="button" href="#confirmation" data-bs-toggle="modal"><i class="fa fa-close"></i>  BATAL</a></div>
+                            <div class="col-md-12 content-right"><button class="btn btn-success form-btn" type="submit" name="submit"> ISI </button><a class="btn btn-danger form-btn" role="button" href="../profil.html"><i class="fa fa-close"></i>  KEMBALI</a></div>
                         </div>
                     </div>
                 </div>
@@ -128,16 +123,5 @@
         </div>
         <p class="copyright">COW © 2021</p>
     </div>
-</footer><div role="dialog" tabindex="-1" class="modal fade flex-fill" id="confirmation">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Batal Pengisian Saldo</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Apakah Anda tidak ingin mengisi saldo ?</p>
-            </div>
-            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Tidak</button><button class="btn btn-primary" type="button" onclick="history.go(-1)">Iya</button></div>
-        </div>
-    </div>
-</div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script><script src="../../assets/js/script.min.js"></script></body></html>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script><script src="../../assets/js/script.min.js"></script></body></html>
