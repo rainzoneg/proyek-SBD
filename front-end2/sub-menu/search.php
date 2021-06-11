@@ -6,6 +6,10 @@
         if (sessionId == null ){
             sessionId = 0;
         }
+        var success = urlParams.get('sc'); 
+        if (success == null ){
+            success = 0;
+        }
     </script>
     <meta property="og:type" content=""><meta name="description" content="Tempat menyediakan layanan pemesanan film terbesar di Indonesia."><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="../assets/img/cinema16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../assets/img/cinema32x32.png"><link rel="icon" type="image/png" sizes="180x180" href="../assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="../assets/img/cinema192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="../assets/img/cinema512x512.png"><link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"><link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css"><link rel="stylesheet" href="../assets/css/styles.min.css"></head>
     <body id="page-top">
@@ -69,12 +73,12 @@
                     <form method="POST" action=""><input id="myInput" name="title" placeholder="Cari Nama Films" /><button id="myBtn" class="btn btn-success btn-lg" type="submit" name="submit">Cari</button></form>
                 </div>
             </section>
-            <div class="row" style="margin-bottom: 10%;">
-                <div class="col">
-                    <h2 class="text-center">Pencarian Tidak Ditemukan.<br /></h2>
-                    <p>Kami tidak dapat menemukan nama film Anda yang ada di database kami.<br />Apakah Anda sudah melihat <a href="film-1.php">film</a> kami ?</p>
-                </div>
-            </div>
+            
+                
+                    
+                    
+                
+            
             <?php
                 $db = pg_connect("host=localhost port=5432 dbname=proyeksbd user=postgres password=");
                 
@@ -85,53 +89,63 @@
                     $title = $_POST['title'];
                     $result = pg_query($db,"SELECT * FROM film WHERE title ILIKE '%$title%';");
                 }
-                while($row=pg_fetch_assoc($result)){
-                echo '<div class="row" style="margin-bottom: 5%;margin-top: 5%;">';
-
-                
-                echo '<div class="col-md-4" style="margin-bottom: 5%;">';
-                echo '<a href="#">';
-                            
-                    echo '<img class="img-fluid" src='.$row['poster_url'].'></a></div>';
-                    echo '<div class="col-md-8 text-start"><h2>'.$row['title'].'</h2>';
-
-                    echo '<p id="d'.$row['film_id'].'"><script>readFilmDescById('.$row['film_id'].');</script><br /></p>';
-                    echo '<a draggable="false" href="../payment/pay-confirmation.php?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
-                    echo '<div style="margin-top: 3%;"></div>';
-                    echo '<div class="table-responsive"><table class="table"><tbody style="color: rgb(255,255,255);">';
-                    
-                    echo '<tr>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Studio:</td>';
-                    echo '<td class="text-start" id="st'.$row['film_id'].'" style="border-color: rgba(255,255,255,0);">'.$row['studio'].'</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Kategori:</td>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['genre1'].','.$row['genre2'].','.$row['genre3'].'<br></td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Tanggal Rilis:</td>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['release_date'].'</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Rating:</td>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['rating'].'</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Durasi:</td>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['length'].' menit</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Harga:</td>';
-                    echo '<td class="text-start" id="h'.$row['film_id'].'" style="border-color: rgba(255,255,255,0);"><script>hargaId('.$row['film_id'].');</script></td>';
-                    echo '</tr>';
-
-                    echo '</tbody></table>';
-                
-                    echo '</div></div>';
-                    
-                
+                if(pg_num_rows($result) == 0){
+                    echo '<div class="row" id="failed" style="margin-bottom: 10%;">';
+                    echo '<div class="col">';
+                    echo '<h2 class="text-center">Pencarian Tidak Ditemukan.<br /></h2>';
+                    echo '<p>Kami tidak dapat menemukan nama film Anda yang ada di database kami.<br />Apakah Anda sudah melihat <a href="film-1.php">film</a> kami ?</p>';
                     echo '</div>';
-                    }
+                    echo '</div>';
+                }else{
+                    while($row=pg_fetch_assoc($result)){
+                        echo '<div class="row" style="margin-bottom: 5%;margin-top: 5%;">';
+        
+                        
+                        echo '<div class="col-md-4" style="margin-bottom: 5%;">';
+                        echo '<a href="#">';
+                                    
+                            echo '<img class="img-fluid" src='.$row['poster_url'].'></a></div>';
+                            echo '<div class="col-md-8 text-start"><h2>'.$row['title'].'</h2>';
+        
+                            echo '<p id="d'.$row['film_id'].'"><script>readFilmDescById('.$row['film_id'].');</script><br /></p>';
+                            echo '<a draggable="false" href="../payment/pay-confirmation.php?film_id='.$row['film_id'].'&"><button class="btn btn-primary" type="button"><i class="fa fa-ticket"></i> PESAN</button></a>';
+                            echo '<div style="margin-top: 3%;"></div>';
+                            echo '<div class="table-responsive"><table class="table"><tbody style="color: rgb(255,255,255);">';
+                            
+                            echo '<tr>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Studio:</td>';
+                            echo '<td class="text-start" id="st'.$row['film_id'].'" style="border-color: rgba(255,255,255,0);">'.$row['studio'].'</td>';
+                            echo '</tr>';
+                            echo '<tr>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Kategori:</td>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['genre1'].','.$row['genre2'].','.$row['genre3'].'<br></td>';
+                            echo '</tr>';
+                            echo '<tr>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Tanggal Rilis:</td>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['release_date'].'</td>';
+                            echo '</tr>';
+                            echo '<tr>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Rating:</td>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['rating'].'</td>';
+                            echo '</tr>';
+                            echo '<tr>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Durasi:</td>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['length'].' menit</td>';
+                            echo '</tr>';
+                            echo '<tr>';
+                            echo '<td class="text-start" style="border-color: rgba(255,255,255,0);">Harga:</td>';
+                            echo '<td class="text-start" id="h'.$row['film_id'].'" style="border-color: rgba(255,255,255,0);"><script>hargaId('.$row['film_id'].');</script></td>';
+                            echo '</tr>';
+        
+                            echo '</tbody></table>';
+                        
+                            echo '</div></div>';
+                            
+                        
+                            echo '</div>';
+                            }
+                }
+                
                 ?>
         </div>
     </div>

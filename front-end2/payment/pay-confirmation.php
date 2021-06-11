@@ -65,14 +65,21 @@
         </script>
 <?php
 	$db = pg_connect("host=localhost port=5432 dbname=proyeksbd user=postgres password=");
-    $accountid = $_GET['?sessionId'];
+    if (isset($_GET['?sessionId'])){
+        $accountid = $_GET['?sessionId'];
+    }
     $filmId = $_GET['film_id'];
     $query = pg_query($db, "SELECT * FROM price_data WHERE film_id = $filmId;");
     $fetch = pg_fetch_assoc($query);
     $price = $fetch['price'];
     
     if (isset($_POST['submit'])) {
+        if($accountid == 0){
+            echo "<script type='text/javascript'>location.href= '../profil-user/login/signin.html';</script>";
+        }
         $result = pg_query($db,"UPDATE account_test SET wallet = wallet - $price WHERE account_id = $accountid");
+        sleep(1);
+        $result2 = pg_query($db, "INSERT INTO order_data (account_id, film_id, amount) VALUES ('$accountid', '$filmId', 1);");
         sleep(1);
         echo "<script type='text/javascript'>location.href= '../profil-user/history.php?sessionId=${accountid}';</script>";
     }
