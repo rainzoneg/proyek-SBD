@@ -98,7 +98,7 @@ price int
 1. Buka **XAMPP** dan menyalakan **Apache**
 2. Menjalankan program back-end pada **index.js** folder **public-back** dengan command : `node index.js`
 3. Selamat mencoba!
-4. Untuk login, menggunakan tabel **account_test**
+4. Untuk login, menggunakan data tabel **account_test**
 
 
 
