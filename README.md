@@ -44,19 +44,23 @@ Digunakan 4 tabel/relasi:
 
 ![image](https://user-images.githubusercontent.com/68103682/121511790-3b1edd80-ca13-11eb-972c-437dc49ddd04.png)
 
-```CREATE table account_test(account_id serial UNIQUE PRIMARY KEY, 
+
+```
+CREATE table account_test(account_id serial UNIQUE PRIMARY KEY, 
 firstname text NOT NULL,
 surname text,
 email text UNIQUE NOT NULL,
 wallet bigint,
-password text);```
+password text);
 
+```
 
 *Tabel Film*
 
 ![image](https://user-images.githubusercontent.com/68103682/120690766-d2de7200-c4cf-11eb-9c54-8e8241e39c00.png)
 
-```CREATE table film(film_id int, 
+```
+CREATE table film(film_id int, 
 title text,
 poster_url text,
 release_date date,
@@ -66,26 +70,31 @@ genre2 text,
 genre3 text,
 rating text,
 length int,
-description text);```
+description text);
+```
 
 *Tabel Order*
 
 ![asdasd2](https://user-images.githubusercontent.com/68103682/121388523-bfbb1e80-c975-11eb-9d7f-ccec3248a707.PNG)
 
-```CREATE TABLE order_data(
+```
+CREATE TABLE order_data(
 order_id serial NOT NULL PRIMARY KEY,
 account_id int,
 film_id int,
-amount smallint);```
+amount smallint);
+```
 
 *Tabel Prices*
 
 ![asdasd3](https://user-images.githubusercontent.com/68103682/121388866-090b6e00-c976-11eb-983d-4a8af1a2b953.PNG)
 
-```CREATE TABLE price_data(
+```
+CREATE TABLE price_data(
 film_id int,
 price int
-);```
+);
+```
 
 
 
