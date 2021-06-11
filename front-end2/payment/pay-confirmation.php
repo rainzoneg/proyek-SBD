@@ -80,8 +80,7 @@
 </nav><header class="masthead" style="background: rgb(33,37,41);">
     <div class="container">
         <div class="intro-text" style="padding-bottom: 100px;">
-            <h1 style="color: rgb(254,209,54);">Pembayaran</h1>
-            <p>Masih dalam pembangunan. Mohon maaf atas ketidaknyamanan pengguna..</p><span role="status" class="spinner-border spinner-border-sm"></span>
+            <h1 style="color: rgb(254,209,54);margin-bottom: 5%;">Pembayaran</h1>
             <div class="col" style="margin-left: 10%;">
                 <div class="table-responsive" style="margin-bottom: 5%;">
                     <table class="table">
