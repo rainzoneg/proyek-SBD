@@ -69,6 +69,12 @@
                     <form method="POST" action=""><input id="myInput" name="title" placeholder="Cari Nama Films" /><button id="myBtn" class="btn btn-success btn-lg" type="submit" name="submit">Cari</button></form>
                 </div>
             </section>
+            <div class="row" style="margin-bottom: 10%;">
+                <div class="col">
+                    <h2 class="text-center">Pencarian Tidak Ditemukan.<br /></h2>
+                    <p>Kami tidak dapat menemukan nama film Anda yang ada di database kami.<br />Apakah Anda sudah melihat <a href="film-1.html">film</a> kami ?</p>
+                </div>
+            </div>
             <?php
                 $db = pg_connect("host=localhost port=5432 dbname=proyeksbd user=postgres password=");
                 
