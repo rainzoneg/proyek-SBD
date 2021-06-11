@@ -16,7 +16,7 @@
 
 ## Tentang
 Proyek Sistem Basis Data Kelompok 7a, berupa aplikasi Website Cinema On Web (COW) terintegrasi database PostgreSQL untuk menyimpan dan menampilkan data
-Film, info film terbaru, databaes film, dll. Prototype dari website dapat dilihat di https://cow-7a.web.app/
+Film, info film terbaru, database film, dll. Prototype dari website dapat dilihat di https://cow-7a.web.app/
 
 ## Requirement
 1. [XAMPP Web Server](https://www.apachefriends.org/download.html)
@@ -51,7 +51,6 @@ surname text,
 email text UNIQUE NOT NULL,
 wallet bigint,
 password text);
-
 ```
 
 **Tabel Film**
@@ -77,8 +76,7 @@ description text);
 ![asdasd2](https://user-images.githubusercontent.com/68103682/121388523-bfbb1e80-c975-11eb-9d7f-ccec3248a707.PNG)
 
 ```SQL
-CREATE TABLE order_data(
-order_id serial NOT NULL PRIMARY KEY,
+CREATE TABLE order_data(order_id serial NOT NULL PRIMARY KEY,
 account_id int,
 film_id int,
 amount smallint);
@@ -89,8 +87,7 @@ amount smallint);
 ![asdasd3](https://user-images.githubusercontent.com/68103682/121388866-090b6e00-c976-11eb-983d-4a8af1a2b953.PNG)
 
 ```SQL
-CREATE TABLE price_data(
-film_id int,
+CREATE TABLE price_data(film_id int,
 price int
 );
 ```
