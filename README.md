@@ -8,7 +8,6 @@
 
 
 
-
 ## Anggota
 * Juan Patrick 1906355516
 * Richard Tanoto 1906355586
@@ -31,7 +30,7 @@ Buka *XAMPP->php->php.ini* dan uncomment pada extension pgsql agar library pgsql
 ![image](https://user-images.githubusercontent.com/80802092/121706702-12c0dd00-cb00-11eb-86a6-13a1a54300e5.png)
 
 
-### Database yang Digunakan
+## Database yang Digunakan
 Database yang digunakan adalah PostgreSQL, dan spesifikasi database adalah sebagai berikut:
 
 Nama Database: proyeksbd
@@ -45,7 +44,7 @@ Digunakan 4 tabel/relasi:
 ![image](https://user-images.githubusercontent.com/68103682/121511790-3b1edd80-ca13-11eb-972c-437dc49ddd04.png)
 
 
-```sql
+```SQL
 CREATE table account_test(account_id serial UNIQUE PRIMARY KEY, 
 firstname text NOT NULL,
 surname text,
@@ -77,7 +76,7 @@ description text);
 
 ![asdasd2](https://user-images.githubusercontent.com/68103682/121388523-bfbb1e80-c975-11eb-9d7f-ccec3248a707.PNG)
 
-```
+```SQL
 CREATE TABLE order_data(
 order_id serial NOT NULL PRIMARY KEY,
 account_id int,
@@ -89,12 +88,23 @@ amount smallint);
 
 ![asdasd3](https://user-images.githubusercontent.com/68103682/121388866-090b6e00-c976-11eb-983d-4a8af1a2b953.PNG)
 
-```
+```SQL
 CREATE TABLE price_data(
 film_id int,
 price int
 );
 ```
+
+
+## Cara Menjalankan Aplikasi Web
+
+1. Buka *XAMPP* dan menyalakan *Apache*
+2. Menjalankan program back-end pada *index.js* folder *public-back* dengan command : `node index.js`
+3. Selamat mencoba
+4. Untuk login, menggunakan tabel *account_test*
+
+
+
 
 
 
