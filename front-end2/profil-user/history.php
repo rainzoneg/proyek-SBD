@@ -65,16 +65,10 @@
     <div class="container">     
         <div class="intro-text" style="padding-bottom: 100px;">
             <h1 style="color: rgb(254,209,54);margin-bottom: 5%;">RIWAYAT TRANSAKSI</h1>
-            <table class="table">
-                <tbody style="color: rgb(255,255,255);">
-                    <tbody style="color: rgb(255,255,255);">
-                    <tr>
-                        <td class="text-start" style="border-color: rgba(255,255,255,0);">Saldo Saat Ini:</td>
-                        <td id="walletsa" style="border-color: rgba(255,255,255,0)" ><script>accountSaldo(sessionId)</script><br /></td>
-                    </tr>
-                    </tbody>
-                </tbody>
-            </table>
+			<div class="col text-start" style="margin-bottom: 4%;">
+				<h3 class="d-inline" > Saldo Saat Ini:  </h3>
+				<h3 class="d-inline"id="walletsa"> <script>accountSaldo(sessionId)</script></h3>
+			</div>
             <script>
                 document.getElementById("walletsa").id = `s${sessionId}`;
             </script>
@@ -88,23 +82,23 @@
                 echo    '<table class="table">';
                 echo        '<tbody style="color: rgb(255,255,255);">';
                 echo           '<tr>' ;
-                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">Order ID:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);width: 200px;">Order ID:</td>';
                 echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['order_id'].'</td>';
                 echo            '</tr>';
                 echo            '<tr>';
-                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">ID Film:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);width: 200px;">ID Film:</td>';
                 echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['film_id'].'</td>';
                 echo           '</tr>';
                 echo            '<tr>';
-                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">Judul Film:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);width: 200px;">Judul Film:</td>';
                 echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['title'].'</td>';
                 echo           '</tr>';
                 echo            '<tr>';
-                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">Harga Film:</td>';
+                echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);width: 200px;">Harga Film:</td>';
                 echo                '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['price'].'</td>';
                 echo           '</tr>';
                 echo            '<tr>';
-                echo               '<td class="text-start" style="border-color: rgba(255,255,255,0);">Jumlah:</td>';
+                echo               '<td class="text-start" style="border-color: rgba(255,255,255,0);width: 200px;">Jumlah:</td>';
                 echo               '<td class="text-start" style="border-color: rgba(255,255,255,0);">'.$row['amount'].'</td>';
                 echo            '</tr>';
                 echo       '</tbody>';
