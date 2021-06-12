@@ -92,6 +92,7 @@
                             <div class="col">
                                 <h1 id="profil">Profile <a class="blink" href="edit/edit-profil.php"><i class="fa fa-pencil" data-bs-toggle="tooltip" title="Edit Profil"></i></a></h1>
                             </div>
+                            <div class="col"><a class="btn btn-danger float-end" role="button" href="#warning-del" data-bs-toggle="modal"><i class="fa fa-trash"></i>  <strong>Hapus Akun</strong><br /></a></div>
                         </div>
                         <hr />
                         <div class="form-group mb-3"><label class="form-label">Email </label><label type="text"  id="var_e" class="form-control" name="email" readonly><script>accountEmail(sessionId)</script></label></div>
@@ -120,7 +121,22 @@
         document.getElementById("var_s").id = `s${sessionId}`;
     </script>
     
-</header><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a><footer class="footer-dark">
+</header><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a>
+<div role="dialog" tabindex="-1" class="modal fade" id="warning-del">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Peringatan</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah anda yakin untuk menghapus akun ini?<br /></p>
+                <p style="font-size: 12px;color: rgb(75,75,75);">NOTE: Kami tidak bertanggung jawab segala data profil, uang saldo, riwayat transaksi, dll. Sisa uang saldo yang disimpan dalam database kami, tidak dapat dicairkan.</p>
+            </div>
+            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Batal</button><a class="btn btn-primary" role="button" href="../index.html">HAPUS</a></div>
+        </div>
+    </div>
+</div> 
+<footer class="footer-dark">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3 item">
