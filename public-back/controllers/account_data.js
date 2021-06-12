@@ -130,7 +130,7 @@ const deleteAccount = (request, response) => {
         if(err){
             throw err;
         }
-        response.status(200).send(`Account deleted with id: ${account_id}`);
+        response.status(200).redirect('http://localhost/front-end2/');
     })
 }
 

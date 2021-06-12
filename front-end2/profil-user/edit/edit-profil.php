@@ -57,6 +57,8 @@
                     document.getElementById("logout").href="../../index.html";
                     document.getElementById("btn-bottom").href="#page-top";
                     document.getElementById("hov-colors").href="#";
+                    document.getElementById("confirmations").href="#confirmation";
+                    
                 }
                 })            
             </script>
@@ -112,7 +114,10 @@
                         </div>
                         <hr id="edit" />
                         <div class="row">
-                            <div class="col-md-12 content-right"><button class="btn btn-success form-btn"  type="submit" name="submit"> SIMPAN </button><a class="btn btn-danger form-btn" role="button" href="#confirmation" data-bs-toggle="modal"><i class="fa fa-close"></i>  BATAL</a></div>
+                            <div class="col-md-12 content-right">
+                                <button class="btn btn-success form-btn"  type="submit" name="submit"> SIMPAN </button>
+                                <a class="btn btn-danger form-btn" role="button" id="confirmations" href="#confirmation" data-bs-toggle="modal"><i class="fa fa-close"></i>  BATAL</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,6 +126,7 @@
     </div>
     <script>
         document.getElementById("account_id").value = `${sessionId}`;
+        
         // document.getElementById("var_ts").id = `ts${sessionId}`;
         
     </script>
