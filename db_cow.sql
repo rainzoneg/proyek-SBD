@@ -346,7 +346,7 @@ SELECT pg_catalog.setval('public.account_test_account_id_seq', 1, false);
 -- Name: order_data_order_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.order_data_order_id_seq', 1, false);
+SELECT pg_catalog.setval('public.order_data_order_id_seq', 50, true);
 
 
 --
