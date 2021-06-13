@@ -79,6 +79,7 @@
         }
         $result = pg_query($db,"UPDATE account_test SET wallet = wallet - $price WHERE account_id = $accountid");
         sleep(1);
+        $result3 = pg_query($db, "SELECT setval('order_data_order_id_seq', (SELECT MAX(order_id) from order_data));");
         $result2 = pg_query($db, "INSERT INTO order_data (account_id, film_id, amount) VALUES ('$accountid', '$filmId', 1);");
         sleep(1);
         echo "<script type='text/javascript'>location.href= '../profil-user/history.php?sessionId=${accountid}';</script>";
