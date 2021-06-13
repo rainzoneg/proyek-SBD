@@ -29,6 +29,11 @@ Buka folder XAMPP->php->php.ini dan *uncomment* pada **extension pgsql** agar li
 
 ![image](https://user-images.githubusercontent.com/80802092/121706702-12c0dd00-cb00-11eb-86a6-13a1a54300e5.png)
 
+## Import SQL
+1. Buka **Command Prompt** dan **PostgreSQL**
+2. Pada PostgreSQL, membuat database **proyeksbd** terlebih dahulu dan menghubungkan database proyeksbd dengan: `CREATE DATABASE proyeksbd; \c proyeksbd`
+3. Pada Command Prompt, mencari lokasi file .sql yang sudah di-download dan ketik `psql -U postgres -d proyeksbd -f db_cow.sql`
+4. Database siap digunakan.
 
 ## Database yang Digunakan
 Database yang digunakan adalah PostgreSQL, dan spesifikasi database adalah sebagai berikut:
