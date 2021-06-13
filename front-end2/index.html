@@ -1,111 +1,126 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>COW - Cinema On Web</title>
-    <script src='./assets/js/fetch.js'></script>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        var sessionId = urlParams.get('sessionId'); 
-        if (sessionId == null ){
-            sessionId = 0;
-        }
-    </script>
-    <meta property="og:type" content=""><meta name="description" content="Tempat menyediakan layanan pemesanan film terbesar di Indonesia."><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/img/cinema16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="assets/img/cinema32x32.png"><link rel="icon" type="image/png" sizes="180x180" href="assets/img/cinema180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="assets/img/cinema192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="assets/img/cinema512x512.png"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"><link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css"><link rel="stylesheet" href="assets/css/styles.min.css"></head><body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: rgb(23,25,27);">
-        <a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button" id="btn-bottom" href="#page-top" style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i class="fa fa-angle-double-up" style="font-size: 26px;"></i></a>
-        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNavi">
-    <div class="container"><a class="navbar-brand" href="index.html" style="border-color: rgb(254, 209, 54);border-top-color: rgb(254,;border-right-color: 209,;border-bottom-color: 54);border-left-color: 209,;color: rgb(254, 209, 54);font-family: 'Kaushan Script', serif;font-size: 28px;">COW</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" style="color: rgb(255,255,255);background: rgb(254,209,54);"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">  
-            <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>  
-            <ul class="navbar-nav ms-auto text-uppercase">
-                <li class="nav-item"><a class="nav-link" id="hov-color" href="sub-menu/search.php"><i class="fa fa-search"></i> Search</a></li>
-                <li class="nav-item"><a class="nav-link" id="hov-color" href="sub-menu/film-1.php">Film</a></li>
-                <li class="nav-item"><a class="nav-link" id="hov-color" href="sub-menu/about.html">ABout</a></li>
-                <li class="nav-item dropdown"><a aria-expanded="false" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" id="hov-colors" href="#">Account</a>
-                    <div class="dropdown-menu dropdown-menu-dark">
-                        <a class="dropdown-item" id="var_t" style="display: none;" href="profil-user/profil.html"><i class="fa fa-user"></i><script>accountFirstname(sessionId)</script></a>
-                        <a class="dropdown-item disabled text-capitalize" id="wallet" style="display: none" href="#"><script>accountWallet(sessionId)</script><br /></a>
-                        <a class="dropdown-item disabled" id="guest" href="profil-user/login/signin.html"><i class="fa fa-user"></i>  Guest</a>
-                        <a class="dropdown-item" id="logout" href="index.html" style="display: none;color: rgb(220,53,69);"><i class="fa fa-power-off"></i> LOG out</a>
-                        <a class="dropdown-item" id="logger" href="profil-user/login/signin.html" style="color: rgb(49, 185, 37);"><i class="fa fa-power-off"></i> LOGIN</a></div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <script>
-        document.getElementById("var_t").id = `t${sessionId}`;
-        document.getElementById("wallet").id = `h${sessionId}`;
-        $(document).ready(function () {
-        // Check if gagal
-        if (sessionId > 0) {
-            $(`#var_t`).show();
-            $(`#wallet`).show();
-        }
-        if (sessionId > 0) {
-            $(`#t${sessionId}`).show();
-            $(`#h${sessionId}`).show();
-            $('#logout').show();
-        }
-        if (sessionId > 0) {
-            $(`#logger`).hide();
-            $(`#guest`).hide();
-        }
-        if (sessionId > 0) {
-            var a = document.getElementsByTagName('a');   // Get all `<a>`
-            var href;
-            // Loop through all `<a>`
-            for (var i = 0; i < a.length; i++){
-                // Add `?who=123` to all hrefs found.
-                a[i].href += `?sessionId=${sessionId}`;
-            }
-            document.getElementById("logout").href="index.html";
-            document.getElementById("btn-bottom").href="#page-top";
-            document.getElementById("hov-colors").href="#";
-        }
-        })
-    </script>
-</nav><header class="masthead" style="background-image: url('assets/img/cover-movie.jpg');">
-    <div class="container">
-        <div class="intro-text">
-            <div class="intro-lead-in"><span>Welcome To Our Cinema!</span></div>
-            <div class="intro-heading text-uppercase"><span>the biggest film collection</span></div>
-            <a class="btn btn-primary btn-xl text-uppercase" role="button" href="sub-menu/film-1.php">Book now</a>
-        </div>
-    </div>
-</header><section>
-    <div class="container">
-        <div class="row" style="padding: 5%;">
-            <div class="col-md-6" style="text-align: center;margin-top:5%;"><img class="w-75" src="assets/img/ticket.png" loading="lazy" /></div>
-            <div class="col" style="margin-top:5%;">
-                <h3 class="text-uppercase" style="color: rgb(254,209,54);">Pemesanan Tiket Online</h3>
-                <p style="color: rgb(255,255,255);">Pemesanan tiket dapat dilakukan dengan menggunakan akun yang terdaftar. Kami menjamin pengguna dapat membeli tiket secara cepat dan aman dengan bukti transaksi dalam setiap pembayaran.</p><a class="btn btn-primary" role="button" href="profil-user/login/signup.html">DAFTAR</a>
-            </div>
-        </div>
-    </div>
-</section><div style="height: 5px;background: #444242;"></div><!-- Paradise Slider -->
-	<div style="background-color:#17191b;"class="x_002_lcd_main_wrap" > <!-- Lcd Main Wrapper -->
-		<div class="row"style="margin:5% 5% 0 5%;padding:5% 0 5% 0"> <!-- .row -->
+<!DOCTYPE html>
+<html>
 
-			<div class="col-lg"> <!-- .col-lg -->
-				<h1 style="color:rgb(229, 188, 49);">Film on House</h1>
-				<p style="font-size:18px; font-family: Montserrat, sans-serif; ">Sekarang tanpa perlu khawatir ke bioskop dalam kondisi pandemi. Cinema On Web membuka layanan film on house yang membuat suasana bioskop tetap ada walau di Rumah</p>
-				<ul>
-					<li style="font-size:18px; font-family: Montserrat, sans-serif; "><span class="fa fa-check-square-o" style="color:rgb(229, 188, 49);  "></span>Protokol kesehatan tetap terjaga</li>
-					<li style="font-size:18px; font-family: Montserrat, sans-serif; "><span class="fa fa-check-square-o" style="color:rgb(229, 188, 49);"></span>Jasa pembuatan popcorn</li>
-					<li style="font-size:18px; font-family: Montserrat, sans-serif; "><span class="fa fa-check-square-o" style="color:rgb(229, 188, 49);"></span>Menggunakan proyektor LCD</li>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>COW - Cinema On Web</title>
+	<meta property="og:type" content="">
+	<meta name="description" content="Tempat menyediakan layanan pemesanan film terbesar di Indonesia.">
+	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/cinema180x180.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/cinema16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/cinema32x32.png">
+	<link rel="icon" type="image/png" sizes="180x180" href="assets/img/cinema180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="assets/img/cinema192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="assets/img/cinema512x512.png">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+	<link rel="stylesheet" href="assets/css/styles.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54"
+	style="background: rgb(23,25,27);"><a class="btn btn-primary rounded-circle position-fixed flex-fill" role="button"
+		id="btn-bottom" href="#page-top"
+		style="bottom: 20px;z-index: 10000;right: 40px;display: inline-block;width: 55px;height: 55px;padding-top: 12px;"><i
+			class="fa fa-angle-double-up" style="font-size: 26px;"></i></a>
+	<header class="masthead" style="background-image: url(&quot;assets/img/cover-movie.jpg&quot;);">
+		<div class="container">
+			<div class="intro-text">
+				<div class="intro-lead-in"><span>Welcome To Our Cinema!</span></div>
+				<div class="intro-heading text-uppercase"><span>the biggest film collection</span></div>
+				<div class="intro-lead-in"></div><a class="btn btn-primary btn-xl text-uppercase" role="button"
+					href="sub-menu/film-1.html">Book now</a>
+			</div>
+		</div>
+	</header>
+	<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNavi">
+		<div class="container"><a class="navbar-brand" href="index.html"
+				style="border-color: rgb(254, 209, 54);border-top-color: rgb(254,;border-right-color: 209,;border-bottom-color: 54);border-left-color: 209,;color: rgb(254, 209, 54);font-family: 'Kaushan Script', serif;font-size: 28px;">COW</a><button
+				data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right"
+				style="color: rgb(255,255,255);background: rgb(254,209,54);"><i class="fa fa-bars"></i></button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto text-uppercase">
+					<li class="nav-item"><a class="nav-link" id="hov-color" href="sub-menu/search.html"><i
+								class="fa fa-search"></i>&nbsp;Search</a></li>
+					<li class="nav-item"><a class="nav-link" id="hov-color" href="sub-menu/film-1.html">Film</a></li>
+					<li class="nav-item"><a class="nav-link" id="hov-color" href="sub-menu/about.html">ABout</a></li>
+					<li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
+							data-bs-toggle="dropdown" id="hov-color" href="#">Account</a>
+						<div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item"
+								href="profil-user/profil.html"><i class="fa fa-user"></i>&nbsp; Username</a><a
+								class="dropdown-item disabled text-capitalize" href="#">Rp 35.000,-<br></a><a
+								class="dropdown-item" href="index.html" style="color: rgb(220,53,69);"><i
+									class="fa fa-power-off"></i>&nbsp;LOG out</a><a class="dropdown-item"
+								href="profil-user/login/signin.html"><i class="fa fa-user"></i>&nbsp; Guest</a></div>
+					</li>
 				</ul>
-				<button class="btn btn-primary" role="button" href="#" style="background: rgba(216,178,46,0.98);">Pesan</button>
-			</div>  <!-- /.col-lg -->
-		
-			<div class="col-lg"> <!-- .col-lg -->
-				<div class="x_002_lcd_inner_wrap"> <!-- Lcd Inner Wrapper -->
+			</div>
+		</div>
+	</nav>
+	<section>
+		<div class="container">
+			<div class="row" style="padding: 5%;">
+				<div class="col-md-6" style="text-align: center;margin-top: 5%;"><img data-aos="fade-right"
+						data-aos-once="true" class="w-75" src="assets/img/ticket.png" loading="lazy"></div>
+				<div class="col" data-aos="fade" data-aos-once="true" style="margin-top: 5%;">
+					<h3 class="text-uppercase" style="color: rgb(254,209,54);">Pemesanan Tiket Online</h3>
+					<p style="color: rgb(255,255,255);">Pemesanan tiket dapat dilakukan dengan menggunakan akun yang
+						terdaftar. Kami menjamin pengguna dapat membeli tiket secara cepat dan aman dengan bukti
+						transaksi dalam setiap pembayaran.</p><a class="btn btn-primary" role="button"
+						href="profil-user/login/signup.html">DAFTAR</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div style="height: 5px;background: #444242;"></div><!-- Paradise Slider -->
+	<div style="background-color:#17191b;" class="x_002_lcd_main_wrap">
+		<!-- Lcd Main Wrapper -->
+		<div class="row" style="margin:5% 5% 0 5%;padding:5% 0 5% 0">
+			<!-- .row -->
+
+			<div class="col-lg">
+				<!-- .col-lg -->
+				<h1 style="color:rgb(229, 188, 49);">Film on House</h1>
+				<p style="font-size:18px; font-family: Montserrat, sans-serif; ">Sekarang tanpa perlu khawatir ke
+					bioskop dalam kondisi pandemi. Cinema On Web membuka layanan film on house yang membuat suasana
+					bioskop tetap ada walau di Rumah</p>
+				<ul>
+					<li style="font-size:18px; font-family: Montserrat, sans-serif; "><span class="fa fa-check-square-o"
+							style="color:rgb(229, 188, 49);  "></span>Protokol kesehatan tetap terjaga</li>
+					<li style="font-size:18px; font-family: Montserrat, sans-serif; "><span class="fa fa-check-square-o"
+							style="color:rgb(229, 188, 49);"></span>Jasa pembuatan popcorn</li>
+					<li style="font-size:18px; font-family: Montserrat, sans-serif; "><span class="fa fa-check-square-o"
+							style="color:rgb(229, 188, 49);"></span>Menggunakan proyektor LCD</li>
+				</ul>
+				<button class="btn btn-primary" role="button" href="#"
+					style="background: rgba(216,178,46,0.98);">Pesan</button>
+			</div> <!-- /.col-lg -->
+
+			<div class="col-lg">
+				<!-- .col-lg -->
+				<div class="x_002_lcd_inner_wrap">
+					<!-- Lcd Inner Wrapper -->
 					<!-- Lcd Image -->
 					<img src="assets/img/x_002_lcd_img.png" alt="x_002_lcd_img">
 
 					<!-- Slider -->
-					<div id="x_002_lcd" class="carousel slide x_002_lcd_indicators x_002_lcd_control_button thumb_scroll_x swipe_x ps_easeOutCirc" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="8000" data-bs-duration="2000">
-						
+					<div id="x_002_lcd"
+						class="carousel slide x_002_lcd_indicators x_002_lcd_control_button thumb_scroll_x swipe_x ps_easeOutCirc"
+						data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="8000" data-bs-duration="2000">
+
 						<!-- Indicators -->
-						<ol class="carousel-indicators" >
-							<li data-bs-target="#x_002_lcd"  data-bs-slide-to="0" class="active"></li>
-							<li data-bs-target="#x_002_lcd"  data-bs-slide-to="1"></li>
-							<li data-bs-target="#x_002_lcd"  data-bs-slide-to="2"></li>
+						<ol class="carousel-indicators">
+							<li data-bs-target="#x_002_lcd" data-bs-slide-to="0" class="active"></li>
+							<li data-bs-target="#x_002_lcd" data-bs-slide-to="1"></li>
+							<li data-bs-target="#x_002_lcd" data-bs-slide-to="2"></li>
 						</ol>
 
 						<!-- Wrapper For Slides -->
@@ -124,7 +139,7 @@
 								<img src="assets/img/lcd2.jpg" alt="x_002_lcd_02">
 							</div> <!-- /item -->
 							<!-- End of Second Slide -->
-							
+
 							<!-- Third Slide -->
 							<div class="carousel-item">
 								<!-- Image -->
@@ -132,7 +147,7 @@
 							</div> <!-- /item -->
 							<!-- End of Third Slide -->
 
-						</div>  <!-- End of Wrapper For Slides -->
+						</div> <!-- End of Wrapper For Slides -->
 
 						<!-- Left Control -->
 						<a class="carousel-control-prev" href="#x_002_lcd" data-bs-slide="prev">
@@ -153,44 +168,63 @@
 	</div> <!-- /Lcd Wrapper -->
 	<!-- End Paradise Slider -->
 
- <!-- End --><div style="height: 5px;background: #444242;"></div><section class="highlight-phone">
-    <div>
-        <div class="container">
-            <div class="row" style="padding: 5%;">
-                <div class="col-md-6">
-                    <div class="d-none d-md-block phone-mockup"><img class="device" src="assets/img/phone.svg" />
-                        <div class="screen"></div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="intro">
-                        <h2>Tersedia di Google Play</h2>
-                        <p>Cinema On Web dapat ditonton di mana saja melalui bioskop, streaming, dan smartphone kalian. Ayo unduh sekarang!</p><a class="btn btn-primary" role="button" href="https://play.google.com/" style="background: rgba(216,178,46,0.98);">Download</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><div style="height: 5px;background: #444242;"></div><footer class="footer-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-3 item">
-                <p style="font-family: 'Kaushan Script', serif;color: rgb(254,209,54);font-size: 38px;text-align: right;">COW</p>
-            </div>
-            <div class="col-sm-6 col-md-3 item" style="text-align: left;">
-                <h2 style="margin: 5%;">Cinema On Web</h2>
-                <ul style="margin: 5%;">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sub-menu/film-1.html">Film</a></li>
-                    <li><a href="sub-menu/about.html">About</a></li>
-                </ul>
-            </div>
-            <div class="col item social">
-                <h4>Kontak Kami</h4>
-                <div style="height: 20px;"></div><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/"><i class="icon ion-social-twitter"></i></a><a href="https://gmail.com"><i class="icon ion-android-mail"></i></a><a href="https://instagram.com"><i class="icon ion-social-instagram"></i></a>
-            </div>
-        </div>
-        <p class="copyright">COW © 2021</p>
-    </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script><script src="assets/js/script.min.js"></script></body></html>
+
+
+	<!-- End -->
+	<div style="height: 5px;background: #444242;"></div>
+	<section class="highlight-phone">
+		<div>
+			<div class="container">
+				<div class="row" style="padding: 5%;">
+					<div class="col-md-6" data-aos="fade-right" data-aos-once="true">
+						<div class="d-none d-md-block phone-mockup"><img class="device" src="assets/img/phone.svg">
+							<div class="screen"></div>
+						</div>
+					</div>
+					<div class="col" data-aos="fade-up" data-aos-once="true">
+						<div class="intro">
+							<h2 class="text-uppercase">Tersedia di Google Play</h2>
+							<p>Cinema On Web dapat ditonton di mana saja melalui bioskop, streaming, dan smartphone
+								kalian. Ayo unduh sekarang!</p><a class="btn btn-primary" role="button"
+								href="https://play.google.com/" style="background: rgba(216,178,46,0.98);">Download</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div style="height: 5px;background: #444242;"></div>
+	<footer class="footer-dark">
+		<div class="container" data-aos="fade" data-aos-once="true">
+			<div class="row">
+				<div class="col-sm-6 col-md-3 item">
+					<p
+						style="font-family: 'Kaushan Script', serif;color: rgb(254,209,54);font-size: 38px;text-align: right;">
+						COW</p>
+				</div>
+				<div class="col-sm-6 col-md-3 item" style="text-align: left;">
+					<h2 style="margin: 5%;">Cinema On Web</h2>
+					<ul style="margin: 5%;">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="sub-menu/film-1.html">Film</a></li>
+						<li><a href="sub-menu/about.html">About</a></li>
+					</ul>
+				</div>
+				<div class="col item social">
+					<h4>Kontak Kami</h4>
+					<div style="height: 20px;"></div><a href="https://www.facebook.com"><i
+							class="icon ion-social-facebook"></i></a><a href="https://twitter.com/"><i
+							class="icon ion-social-twitter"></i></a><a href="https://gmail.com"><i
+							class="icon ion-android-mail"></i></a><a href="https://instagram.com"><i
+							class="icon ion-social-instagram"></i></a>
+				</div>
+			</div>
+			<p class="copyright">COW © 2021</p>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+	<script src="assets/js/script.min.js"></script>
+</body>
+
+</html>
